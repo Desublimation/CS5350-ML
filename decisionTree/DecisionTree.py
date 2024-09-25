@@ -21,9 +21,26 @@ class DecisionTree:
                               "safety":["low","med","high"], "label":self.result_val.copy()}
         elif treeType == "bank":
             self.keys = ["age", "job", "marital", "education", "default", "balance", "housing", "loan", "contact", "day", "month", "duration", "campaign", "pdays", "previous", "poutcome","y "]
+            age_list = list(range(18, 96))
             self.result_val = ["yes", "no"]
-            self.root_attr = {}
-            
+            self.root_attr = {"age":[int],
+                              "job":["admin.","unknown","unemployed","management","housemaid","entrepreneur","student","blue-collar","self-employed","retired","technician","services"],
+                              "marital":["married","divorced","single"],
+                              "education":["unknown","secondary","primary","tertiary"],
+                              "default":["yes","no"],
+                              "balance":[int],
+                              "housing":["yes","no"],
+                              "loan":["yes","no"],
+                              "contact":["unknown","telephone","cellular"],
+                              "day":[int],
+                              "month":["jan", "feb", "mar", "apr","may","jun","jul","aug","sep","oct", "nov", "dec"],
+                              "duration":[int],
+                              "campaign":[int],
+                              "pdays":[int],
+                              "previous":[int],
+                              "poutcome":["unknown","other","failure","success"],
+                              "y":["yes","no"]
+                              }
 
         self.dataStorage = {key: [] for key in self.keys}
         self.rows = 0
